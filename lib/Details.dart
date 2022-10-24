@@ -34,7 +34,7 @@ class _DetailsState extends State<Details> {
                   decoration: InputDecoration(hintText: "write a new todo"),
                 ),
                 SizedBox(
-                  width: 400,
+                  width: 200,
                   child: ElevatedButton(
                     onPressed: () async {
                       final _userInput = _controller.text;
@@ -45,7 +45,7 @@ class _DetailsState extends State<Details> {
                 ),
                 Expanded(
                     child: Container(
-                  color: Colors.amber,
+                  color: Colors.purple.shade50,
                   child: ValueListenableBuilder(
                       valueListenable: Hive.box('users-name').listenable(),
                       builder: (_, box, widget) {
@@ -94,7 +94,7 @@ class _DetailsState extends State<Details> {
                                                                         .text;
                                                                 await todoBox!.putAt(index,
                                                                     _userInput);
-                                                                Navigator.pop(context);
+                                                                Navigator.push(context, MaterialPageRoute(builder:(_)=>Details()));
                                                               },
                                                               child: Text(
                                                                   "update"),
